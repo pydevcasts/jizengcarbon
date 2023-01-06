@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{ segment|capfirst }}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/frontend/img/favicon.png' %}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor {% static '' %}CSS Files -->
+  <link href="{% static '/assets/frontend/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/assets/frontend/css/style.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/css/product-details.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/frontend/css/login.css' %}" rel="stylesheet">
+
+{% block style %}{% endblock %}
+</head>

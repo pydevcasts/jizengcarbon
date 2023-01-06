@@ -1,0 +1,7 @@
+{{ email }}
+<br>
+  Hello 
+<br>
+
+request for newsletter is created successfully <br>
+Best regards

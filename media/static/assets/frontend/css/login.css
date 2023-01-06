@@ -1,0 +1,284 @@
+body {
+    font-size: 14px;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+    color: #242934;
+    background-color: #f5f7fb;
+    /* background-image: url("../img/dotted-world-map-white-background-vector-illustration_541075-471.webp"); */
+    /* background-repeat: repeat; */
+    /* background-position: right top; */
+    /* background-attachment: fixed; */
+    /* background-size: cover; */
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    /* color: hsla(119, 99%, 48%, 0.946); */
+    text-decoration: none;
+}
+
+section {
+    display: block;
+}
+
+.login-form h4 {
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.login-form h6 {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #999;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+.theme-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form .form-group {
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.login-form .form-group label {
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.login-form .form-group .input-group-text {
+    background-color: rgba(36, 105, 92, 0.1);
+    border: none;
+    color: hsla(119, 99%, 48%, 0.946);
+}
+.input-group-text {
+    border-color: #e6edef;
+    font-weight: 500;
+}
+.login-form {
+    padding: 30px;
+    width: 450px;
+    background-color: #fff;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-form ul.login-social li {
+    /* display: inline-block; */
+    width: 35px;
+    height: 35px;
+    background-color: hsla(119, 99%, 48%, 0.946);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50px;
+}
+.login-form ul.login-social li a {
+    color:#fff;
+}
+.login-form .form-group input {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.login-form ul.login-social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+ul {
+    padding-left: 0px;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-right: 0px;
+}
+
+
+.login-form .login-social-title {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+
+.login-form .login-social-title h5 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #999;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #fff;
+}
+
+.login-form ul.login-social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+ul {
+    padding-left: 0px;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-right: 0px;
+}
+
+
+.row > div {
+    position: relative;
+}
+
+[class*="col-"] {
+    position: relative;
+}
+
+.login-card {
+    /* background-color: rgba(36, 105, 92, 0.1); */
+     height: 100vh; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 30px 12px;
+}
+
+.btn {
+  
+       right: 127px;
+       top: 4px;
+       position: absolute;
+       font-size: 14px;
+       padding: 0.375rem 1.75rem;
+       font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #24695c !important;
+    border-color: #24695c !important;
+}
+.login-form .btn {
+
+        position: absolute;
+        top: 0;
+        right: -2px;
+        font-size: 16px;
+        transition: 0.3s;
+        border-radius: 50px;
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+}
+
+
+.form-control, .form-select {
+    background-color: #fff;
+    font-size: 14px;
+    border-color: #e6edef;
+    color: #717171; }
+    .form-control:focus, .form-select:focus {
+      border-color: #e6edef;
+      background-color: #fff;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05);
+              box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05); }
+
+              
+.btn-success  {
+    background-color: hsla(119, 99%, 48%, 0.946) !important;
+    border-color: hsla(119, 99%, 48%, 0.946) !important;
+}
+
+.theme-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form .form-group {
+    position: relative;
+}
+
+.show-hide {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-transform: capitalize;
+    z-index: 2;
+    }
+    .show-hide span {
+      cursor: pointer;
+      font-size: 13px;
+      color: #24695c; }
+      .show-hide span .show-hide span:before {
+        content: "hide"; }
+      .show-hide span.show:before {
+        content: "show"; }
+
+.span {
+    font-weight: 500;
+}
+
+.card .card-body {
+    padding: 30px;
+    background-color: transparent;
+}
+.p-t-0 {
+    padding-top: 0px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px;
+}
+.breadcrumb-item.active {
+    text-transform: capitalize;
+}
+
+.p-l-0 {
+    padding-left: 0px;
+}
+
+.breadcrumb-item.active {
+    text-transform: capitalize;
+}

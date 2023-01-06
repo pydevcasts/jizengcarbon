@@ -1,0 +1,30 @@
+<style>
+  .swal-wide {
+    font-size: 11px;
+    margin: auto auto;
+    color: hsla(119, 99%, 48%, 0.946);
+  }
+</style>
+{% for message in messages %}
+<script>
+  var customicon = "{{ message.tags }}".replace('alert-', '');
+  if (customicon == "error") {
+    var valuecolor = document.getElementsByClassName("swal-wide").style = "red";
+
+  };
+  Swal.fire({
+    confirmButtonColor: 'hsla(119, 99%, 48%, 0.946)',
+    color: valuecolor,
+    background: '#f9f8f9',
+    customClass: 'swal-wide',
+    allowEscapeKey: false,
+    showClass: {
+      popup: 'my-icon'
+    },
+    title: customicon,
+    icon: customicon,
+    text: '{{ message }}',
+  })
+</script>
+{% endfor %}
+

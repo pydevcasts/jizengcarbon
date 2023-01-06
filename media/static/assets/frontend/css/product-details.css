@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  background-image: url("../img/dotted-world-map-white-background-vector-illustration_541075-471.webp");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: #f1f1f1f1;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: #717171;
+  color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+
+/* Add an italic font style to all quotes */
+q {
+  font-style: italic;
+}
+
+/* Add a blue color to the author */
+.author {
+  color: cornflowerblue;
+}
+
+.img-sep {
+  border-radius: 30px;
+}
+
+.btn-success {
+  top: 0;
+  right: -2px;
+  font-size: 16px;
+  transition: 0.3s;
+  border-radius: 50px;
+  box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+  background-color: hsla(119, 99%, 48%, 0.946) !important;
+  border-color: hsla(119, 99%, 48%, 0.946) !important;
+
+}
+
+.comment-info {
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+}
+
+/* ===================================================*/
+
+.category-sidebar {
+  width: 25rem;
+  background: transparent;
+  margin: 30px 0 20 30px;
+  box-shadow: 0px 0 30px rgb(54 52 58 / 8%);
+  /* border-left:  hsla(119, 99%, 48%, 0.946); */
+  border-left-color: 2px solid hsla(119, 99%, 48%, 0.946);
+
+}
+
+.list-group-item {
+
+  background-color: transparent;
+}
+
+.card-header {
+  height: 60px;
+  border-left: 2px solid hsla(119, 99%, 48%, 0.946);
+
+}
+
+.tag-sidebar {
+  width: 25rem;
+  height: auto;
+  margin-top: 25px;
+  background: transparent;
+  box-shadow: 0px 0 30px rgb(54 52 58 / 8%);
+  border-left-color: 2px solid hsla(119, 99%, 48%, 0.946);
+}
+
+.tag-sidebar .card-header {
+  height: 60px;
+  border-left: 2px solid hsla(119, 99%, 48%, 0.946);
+
+}
+
+.tag-sidebar .tag-widget {
+  border: 1px solid hsla(119, 99%, 48%, 0.946);
+  display: inline-block;
+  padding: 12px 17px;
+  margin-top: 5px;
+  text-transform: capitalize;
+  border-radius: 50px;
+
+}
+
+.tag-sidebar .tag-widget:hover {
+  background-color: hsla(119, 99%, 48%, 0.946);
+  color: #fff
+}

@@ -1,0 +1,68 @@
+        
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1 class="text-light"><a href="{% url 'product:product_and_category' %}"><span>jiZeng</span></a></h1>
+        </div>
+       
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto {% if request.resolver_match.url_name == 'product_and_category' %}active{% endif %}" href="{% url 'product:product_and_category' %}"> Home</a></li>
+            <li><a class="nav-link scrollto {% if request.resolver_match.url_name == 'about-carbon' %}active{% endif %}" href="{% url 'about:about-carbon' %}">About</a></li>
+            <li><a class="nav-link scrollto {% if request.resolver_match.url_name == 'contact-create' %}active{% endif %}" href="{% url 'contact:contact-create' %}">Contact</a></li>
+            <li><a class="nav-link scrollto {% if request.resolver_match.url_name == 'team-carbon' %}active{%endif%}" href="{% url 'team:team-carbon' %}">Team</a></li>
+            
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">PRODUCTS</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a href="{% url 'product:all_product' %}">products</a></li>
+                {% for category in categories %}
+                {% if category.is_parent %}
+                <li class="dropdown"><a href="{{ category.products_base_on_category }}">{{ category.title }}<i class="bi bi-caret-right-fill"></i></a>
+                  {% for subcategory in category.children %}
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ subcategory.get_absolute_url }}">{{ subcategory.title }}</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for postcat in subcategory.products.all %}
+                        <li><a class="dropdown-item" href="{{ postcat.get_absolute_url }}">{{ subcategory.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                  </ul>
+                  {% endfor %}
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+            {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="nav-link" href="/admin/"> <i class="bi bi-person-fill"></i> Admin</a></li>
+                <li><a class="nav-link" href="{% url 'logout' %}"> <i class="bi bi-box-arrow-right"></i> Sign Out</a></li>
+              </ul>
+            </li>
+              {% endif %}
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">
+                    <i class="bi bi-person-fill"></i>
+                    <span>
+                      Sign in
+                    </span>
+                  </a>
+                </li>
+            {% endif %}
+            <form class="form-inline justify-content-center" method = "GET" action="/search/">
+              <input class="form-control" name="q" id="q" placeholder="     Search ..." type="text">
+              <button class="btn m-5 my-sm-0 nav_search-btn" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </form>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </div>
+  </header>

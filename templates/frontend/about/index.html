@@ -1,0 +1,74 @@
+{% extends 'frontend/shared/index.html' %}
+{% load static %}
+{% block content %}
+{% include 'frontend/partials/_header.html' %}
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="{% url 'product:product_and_category' %}">Home</a></li>
+        <li>About</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="row content">
+      {% for about in abouts %}
+      <div class="col-lg-6">
+        <div class="about-img wow fadeInLeft" data-wow-delay=".2s">
+          <img src="{{ about.banner.url }}" alt="Image">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="vision-content">
+          <small>
+            <h2>{{ about.title }}</h2>
+          </small>
+          <h3>{{ about.summary }}</h3>
+          <p>
+           {{ about.content | safe }}
+          </p>
+          <div class="vision-list">
+            <ul>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
+              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in</li>
+            </ul>
+            <ul class="ml-30">
+              <li>
+                <i class="bx bx-chevrons-left"></i>
+                بدون کارگزار ، بدون فروش زیاد
+              </li>
+              <li>
+                <i class="bx bx-chevrons-left"></i>
+                برنامه ریزی سرمایه گذاری
+              </li>
+              <li>
+                <i class="bx bx-chevrons-left"></i>
+                مشاور حرفه ای
+              </li>
+            </ul>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
+              magna aliqua.
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

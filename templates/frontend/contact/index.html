@@ -1,0 +1,99 @@
+{% extends 'frontend/shared/index.html' %}
+{% load static %}
+{% block content %}
+{% include 'frontend/partials/_header.html' %}
+
+
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="{% url 'product:product_and_category' %}">Home</a></li>
+        <li>Contact</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+
+
+<!-- End Header -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
+       {% comment %} {{ map|safe}} {% endcomment %}
+        <div class="info mt-4">
+          <i class="bi bi-geo-alt"></i>
+          <h4>Location:</h4>
+          <p>{{ user.profile.address }}</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mt-4">
+            <div class="info">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>{{ user.email }}</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info w-100 mt-4">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>{{ user.profile.phone }}</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="php-email-form mt-4" method="POST"  action="{% url 'contact:contact-create' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="form-group mt-2">
+              <input type="text" class="form-control {% if form.errors.subject %} border-danger
+              {% endif %}"  name="subject" id="subject" placeholder="Subject">
+            </div>
+            {% for error in form.errors.subject %}
+            <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+            <div class="form-group mt-2">
+              <input type="email" class="form-control {% if form.errors.email %} border-danger
+              {% endif %}"  name="email" id="email" placeholder="Your Email"  >
+            </div>
+            {% for error in form.errors.email %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+          </div>
+
+          <div class="form-group mt-2">
+            <textarea class="form-control {% if form.errors.content %} border-danger
+            {% endif %}"  name="content" rows="5" placeholder="Message"></textarea>
+          </div>
+          {% for error in form.errors.content %}
+          <p class="text-danger">{{ error }}</p>
+          {% endfor %}
+          <div class="form-group mt-2">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock %}

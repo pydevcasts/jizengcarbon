@@ -1,0 +1,6 @@
+
+<form  method="post" action ="{% url 'product:product_and_category' %}">
+        {% csrf_token %}
+        <input type="email" class="form-control" placeholder="Email.." name="subscriber"  autocomplete="off">
+        <input type="submit" value="Subscribe">
+</form>

@@ -1,0 +1,153 @@
+{% extends 'frontend/shared/index.html' %}
+{% load static %}
+{% block content %}
+{% include 'frontend/partials/_header.html' %}
+
+
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'product:all_product' %}">{{ segment |capfirst }}s</a></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+<!-- ======= Portfolio Details Section ======= -->
+
+<section id="portfolio-details" class="portfolio-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="portfolio-details-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+
+            <div class="swiper-slide">
+              <img src="{{ product.banner_1.url}}" alt="">
+            </div>
+
+            <div class="swiper-slide">
+              <img src="{{ product.banner_2.url}}" alt="">
+            </div>
+
+            <div class="swiper-slide">
+              <img src="{{ product.banner_3.url}}" alt="">
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="portfolio-info">
+          <h3>Project information</h3>
+          <ul>
+            <li><strong>Category</strong>: {{ product.category.title }}</li>
+            <li><strong>Writer</strong>: {{ product.author.first_name }}-{{ product.author.last_name }}</li>
+            <li><strong>Project date</strong>: {{ product.published }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="portfolio-description">
+          <h2>{{ product.title }}</h2>
+          <h5>{{ product.summary }}</h5>
+          <p>
+            {{ product.content |striptags |safe }}
+          </p>
+        </div>
+
+        <h6>Comment: {{ product.comments.count }} </h6>
+        <div class="col-lg-10">
+          {% for comment in product.comments.all %}
+          <div class="comment-info mt-4">
+            {% if comment.user.profile.avatar %}
+            <img src="{{ comment.user.profile.get_avatar }}" class="rounded-circle" width=50 alt="carbon">{% else %}
+            <img src="{% static 'assets/frontend/img/team/team-1.jpg'%}" class="rounded-circle mb-4"
+              style="width: 70px;" alt="Avatar" />
+            {% endif %}
+            <small class="m-4">date:{{ comment.published_at }}</small>
+            <h6><strong>name:</strong>{{ comment.user.first_name }}-{{ comment.user.last_name }}</h6>
+            <p>{{ comment.content }}</p>
+          </div>
+          {% endfor %}
+
+          <form method="post" class="comment-form">
+            {% csrf_token %}
+            {% include 'dashboard/includes/form.html' %}
+            <button type="submit" class="btn btn-success mt-4">message</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card category-sidebar">
+          <div class="card-header">
+            Category
+          </div>
+          {% for category in categories %}
+          {% if category.is_parent %}
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="{{ category.products_base_on_category }}">
+                {{ category.title }}
+              </a></li>
+          </ul>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="card tag-sidebar">
+          <div class="card-header">
+            Tag
+          </div>
+          <div class="card-body">
+            <div class="container">
+              {% for tag in product.tags.all %}
+              <span class="tag-widget">{{ tag.title }}</span>
+              {% endfor %}
+  
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Portfolio Details Section -->
+
+{% endblock %}
+{% block script %}
+<!-- <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+
+  </script> -->
+{% endblock %}

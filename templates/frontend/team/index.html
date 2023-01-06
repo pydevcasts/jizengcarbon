@@ -1,0 +1,57 @@
+{% extends 'frontend/shared/index.html' %}
+{% load static %}
+{% block content %}
+{% include 'frontend/partials/_header.html' %}
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>{{ segment|capfirst }}</h2>
+            <ol>
+                <li><a href="{% url 'product:product_and_category' %}">Home</a></li>
+                <li>Team</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<section id="team" class="team">
+    <div class="container">
+        <div class="row">
+            {% for team in teams %}
+            <div class="col-lg-4">
+                <div class="section-title aos-init aos-animate" data-aos="fade-right">
+                    <h2>{{ team.title }}</h2>
+                    <h5>{{ team.summary }}</h5>
+                    <p>{{ team.content | striptags }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for member in members %}
+                    <div class="col-lg-6">
+                        <div class="member aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="pic">
+                                {% if member.banner %}
+                                <img src="{{ member.banner.url }}" class="img-fluid" alt="Carbon-team">
+                                {% endif %}
+                            </div>
+                            <div class="member-info">
+                                <h4>{{ member.first_name}}-{{ member.last_name }}</h4>
+                                <span>{{ member.role }}</span>
+                                <p>{{ member.content| striptags |safe }}</p>
+                                <div class="social">
+                                    <a href="{{ member.twitter }}"><i class="ri-twitter-fill"></i></a>
+                                    <a href="{{ member.facebook }}"><i class="ri-facebook-fill"></i></a>
+                                    <a href="{{ member.instagram }}"><i class="ri-instagram-fill"></i></a>
+                                    <a href="{{ member.linkedin }}"> <i class="ri-linkedin-box-fill"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

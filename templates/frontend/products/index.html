@@ -1,0 +1,42 @@
+{% extends 'frontend/shared/index.html' %}
+{% load static %}
+{% block content %}
+{% include 'frontend/partials/_header.html' %}
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="#">Home</a></li>
+        <li><a href = "{% url 'product:all_product' %}">{{ segment |capfirst }}</a></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+   <!-- ======= Portfolio Details Section ======= -->
+   <div class="container">
+    <div class="row row_branchen ">
+      
+      {% for product in page_obj %}
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="card">
+        <a href="{{ product.get_absolute_url }}">
+          <div class="image__wrapper">
+            <div class="card__shadow--1"></div>
+            <img class="card-img-top" src="{{ product.banner_1.url }}" alt="Carbon graphic">
+
+          </div>
+            <div class="card-body pb-4">
+              <h3 class="card-title">{{ product.title}}</h3>
+              <p class="card-text">{{ product.content| striptags |safe| truncatewords:10}}</p>
+            </div>
+          </a>
+      </div>
+    </div>
+      {% endfor %}
+  
+    </div>
+  </div>
+{% include 'frontend/includes/_pagination.html' %}        
+{% endblock %}

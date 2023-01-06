@@ -1,0 +1,49 @@
+{% load static %}
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="section-title aos-init aos-animate" data-aos="fade-right">
+          <h2>Testimonials</h2>
+          <p>Magnam dolores commodi suscipit uisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+            Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+      </div>
+      <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="testimonials-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden aos-init aos-animate"
+          data-aos="fade-up" data-aos-delay="100">
+
+          <div class="swiper-wrapper" id="swiper-wrapper-2f1104e9b773329c" aria-live="off"
+            style="transform: translate3d(-2268px, 0px, 0px); transition-duration: 0ms;">
+            {% for feedback in feedbacks %}
+            <div class="swiper-slide " data-swiper-slide-index="{{ forloop.counter }}" role="group" aria-label="2 / 5"
+              style="width: 358px; margin-right: 20px;">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                <p>{{ feedback.content | striptags |safe }}</p>
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                {% if feedback.banner %}
+                <img src="{{ feedback.banner.url }}" class="user-avatar rounded-circle me-3" style="width:70px;"
+                  alt="Avatar">{% else %}<img
+                  src="{% static 'assets/frontend/img/testimonials/testimonials-2.jpg' %}" />
+                {% endif %}
+                <h3>{{ feedback.first_name}} - {{ feedback.last_name }}</h3>
+                <h4>{{ feedback.role }}</h4>
+              </div>
+            </div>
+            {% endfor %}</div>
+            <div
+              class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet" tabindex="0" role="button"
+                aria-label="Go to slide {{ forloop.counter }}"></span>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+
+          
+        </div>
+      </div>
+    </div>
+</section>
